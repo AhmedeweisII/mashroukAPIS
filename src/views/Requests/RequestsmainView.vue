@@ -5,66 +5,66 @@
   <section class="requists">
     <div class="container">
       <!--  -->
-      <div v-for="(realEstate, index) in realEstate" :key="index" class="min-req-box">
+      <div v-for="(mockRealEstate, index) in mockRealEstate" :key="index" class="min-req-box">
         <div class="min-req-title-imge-delete">
           <div class="min-req-title-imge">
             <div class="min-req-imge">
-              <img v-if="isForSale(realEstate.property_type)" src="../../assets/imgs/for-sale.png" alt="For Sale Image">
-              <img v-else-if="isVilla(realEstate.property_type)" src="../../assets/imgs/villa.png" alt="Villa Image">
-              <img v-else-if="isCondominium(realEstate.property_type)" src="../../assets/imgs/condominium.png" alt="Condominium Image">
-              <img v-else-if="iszero(realEstate.property_type)" src="../../assets/imgs/noaqar.png" alt="noaqar">
+              <img v-if="isForSale(mockRealEstate.property_type)" src="../../assets/imgs/for-sale.png" alt="For Sale Image">
+              <img v-else-if="isVilla(mockRealEstate.property_type)" src="../../assets/imgs/villa.png" alt="Villa Image">
+              <img v-else-if="isCondominium(mockRealEstate.property_type)" src="../../assets/imgs/condominium.png" alt="Condominium Image">
+              <img v-else-if="iszero(mockRealEstate.property_type)" src="../../assets/imgs/noaqar.png" alt="noaqar">
             </div>
             <div class="info-header">
-              <h2 class="info-head min-req-info-head">{{ redirected(realEstate.property_type) }}</h2>
+              <h2 class="info-head min-req-info-head">{{ redirected(mockRealEstate.property_type) }}</h2>
             </div>
           </div>
           <div class="delete-sec profile">
             <div class="min-req-imge-delete">
               <img src="../../assets/imgs/profil-pic.jpg" class="icone-resize user-photo ">
             </div>
-            <div class="max-con">{{ realEstate.owner ? realEstate.owner.name : 'بدون اسم' }}</div>
+            <div class="max-con">{{ mockRealEstate.owner ? mockRealEstate.owner.name : 'بدون اسم' }}</div>
           </div>
         </div>
         <div class="ad-details">
           <div class="filed-data">
             <img src="../../assets/imgs/to-do-list.png" class="icone-resize">
             <h2 class="data-lable"> &nbsp;رقم الطلب &nbsp;:&nbsp;</h2>
-            <h3 class="data-value">{{ shortenId(realEstate.id) }}</h3> <!--  -->
-            <p class="Request-num min-Request-num">{{ realEstate.partner_type || '' }}&nbsp;&nbsp;</p>
-            <p class="Request-num min-Request-num">{{getPurposeById(realEstate.purpose)}}</p>
+            <h3 class="data-value">{{ shortenId(mockRealEstate.id) }}</h3> <!--  -->
+            <!-- <p class="Request-num min-Request-num">{{ mockRealEstate.partner_type || '' }}&nbsp;&nbsp;</p> -->
+            <p class="Request-num min-Request-num">{{getPurposeById(mockRealEstate.purpose)}}</p>
           </div>
           <div class="filed-data">
             <img src="../../assets/imgs/calendar.png" class="icone-resize">
             <h2 class="data-lable"> &nbsp; تاريخ النشر &nbsp;:&nbsp;</h2>
-            <h3 class="data-value">{{ convertTimestampToFormalDateTime(realEstate.dateCreated) }}</h3>
+            <h3 class="data-value">{{ convertTimestampToFormalDateTime(mockRealEstate.dateCreated) }}</h3>
 
           </div>
           <div class="filed-data">
             <img src="../../assets/imgs/location.png" class="icone-resize">
             <h2 class="data-lable"> &nbsp; المدينة &nbsp;:&nbsp;</h2>
-            <h3 class="data-value"> {{ getCityNameById(realEstate.city_id) || '' }}</h3>
+            <h3 class="data-value"> {{ getCityNameById(mockRealEstate.city_id) || '' }}</h3>
           </div>
           <div class="filed-data">
             <img src="../../assets/imgs/location.png" class="icone-resize">
             <h2 class="data-lable"> &nbsp; الحي &nbsp;:&nbsp;</h2>
-            <h3 class="data-value"> {{ realEstate.partnerNeighborhoods }}</h3>
+            <h3 class="data-value"> {{ mockRealEstate.partnerNeighborhoods }}</h3>
           </div>
           <div class="filed-data">
             <img src="../../assets/imgs/house.png" class="icone-resize">
             <h2 class="data-lable"> &nbsp; النوع &nbsp;:&nbsp;</h2>
-            <h3 class="data-value">{{ getproperty_typeById(realEstate.property_type) }}</h3>
+            <h3 class="data-value">{{ getproperty_typeById(mockRealEstate.property_type) }}</h3>
           </div>
           <div class="filed-data">
             <img src="../../assets/imgs/money.png" class="icone-resize">
             <h2 class="data-lable"> &nbsp; مبلغ كل شريك &nbsp;:&nbsp;</h2>
-            <h3 class="data-value">{{ realEstate.investment_cost }} ريال</h3>
+            <h3 class="data-value">{{ mockRealEstate.investment_cost }} ريال</h3>
             <div class="talk">&nbsp; قابل للتفاوض&nbsp;</div>
           </div>
         </div>
         <div class="filed-flex">
           <img src="../../assets/imgs/team.png" class="icone-resize marg-l-5">
           <h2 class="data-lable">عدد الشركاء الحاليين</h2>
-          <div class="talk">0/{{ realEstate.partners_count}}</div> <!-- -->
+          <div class="talk">0/{{ mockRealEstate.partners_count}}</div> <!-- -->
         </div>
         <div class="client-num min-req-client-num">
           <div class="client-box">
@@ -74,14 +74,14 @@
           </div>
         </div>
         <section class="actions">
-          <router-link :to="{ name: 'FullRequestsOthers', params: { id: `${realEstate.id}/${(realEstate.owner.name)}` } }" class="details-link">
+          <router-link :to="{ name: 'FullRequestsOthers', params: { id: `${mockRealEstate.id}/${(mockRealEstate.owner.name)}` } }" class="details-link">
             التفاصيل
           </router-link>
           <div class="another-acrions">
-            <router-link :to="{ name: 'AddOffer', params: { id: `${realEstate.id}/${(realEstate.partners_count)}` } }" class="mashrouk-btn main-req-button">
+            <router-link :to="{ name: 'AddOffer', params: { id: `${mockRealEstate.id}/${(mockRealEstate.partners_count)}` } }" class="mashrouk-btn main-req-button">
               <h4>أنضم كشريك</h4>
             </router-link>
-            <button href="#" class="main-req-button m-r" @click="sendLove(realEstate.id)" style="background-color:transparent;padding: 0;">
+            <button href="#" class="main-req-button m-r" @click="sendLove(mockRealEstate.id)" style="background-color:transparent;padding: 0;">
               <img src="../../assets/imgs/heart.png" class="main-req-button-img" alt="Love">
             </button>
           </div>
@@ -220,10 +220,136 @@ export default {
       token: '',
       user: {},
       commercials: [],
-      realEstate: [],
+      RealEstate: [],
       commercial: '',
       real_estate_yes: '',
       real_estate_no: '',
+      mockRealEstate: [
+  {
+    id: '1',
+    property_type: 2, // Villa
+    owner: { name: 'علي محمد', id: 'user-123' },
+    dateCreated: new Date('2023-05-15').toISOString(),
+    city_id: 1,
+    partnerNeighborhoods: 'حي النخيل',
+    partners_count: 4,
+    investment_cost: 450000,
+    purpose: 0, // Investment
+    partner_type: 'استثمار',
+    description: '400,2,5,3,8', // units,office,apartments,levels,shop
+    street_width: 20,
+    property_area: 400,
+    directions: 'شمال',
+    plan_number: '12345',
+    property_number: '678',
+    property_age: 5,
+    negotiable: 1,
+    images: [
+      '1.png',
+      '2.png',
+      '3.png'
+    ]
+  },
+  {
+    id: '2',
+    property_type: 1, // Land
+    owner: { name: 'سالم عبدالله', id: 'user-456' },
+    dateCreated: new Date('2023-06-20').toISOString(),
+    city_id: 2,
+    partnerNeighborhoods: 'حي الربيع',
+    partners_count: 5,
+    investment_cost: 320000,
+    purpose: 1, // Ownership
+    partner_type: 'تملك',
+    description: '600,0,0,0,0',
+    street_width: 15,
+    property_area: 600,
+    directions: 'شرق',
+    plan_number: '54321',
+    property_number: '901',
+    property_age: 0,
+    negotiable: 0,
+    images: [
+      '4.png',
+      '5.png'
+    ]
+  },
+  {
+    id: '3',
+    property_type: 4, // Condominium
+    owner: { name: 'مريم خالد', id: 'user-789' },
+    dateCreated: new Date('2023-07-10').toISOString(),
+    city_id: 1,
+    partnerNeighborhoods: 'حي الصحافة',
+    partners_count: 3,
+    investment_cost: 280000,
+    purpose: 0,
+    partner_type: 'استثمار',
+    description: '6,2,6,4,0',
+    street_width: 18,
+    property_area: 800,
+    directions: 'غرب',
+    plan_number: '67890',
+    property_number: '234',
+    property_age: 3,
+    negotiable: 1,
+    images: [
+      '6.png',
+      '7.png',
+      '8.png'
+    ]
+  },
+  {
+    id: '4',
+    property_type: 14, // Commercial
+    owner: { name: 'شركة الأفق العقارية', id: 'user-101' },
+    dateCreated: new Date('2023-08-05').toISOString(),
+    city_id: 3,
+    partnerNeighborhoods: 'حي المركز',
+    partners_count: 6,
+    investment_cost: 750000,
+    purpose: 0,
+    partner_type: 'استثمار',
+    description: '10,10,0,2,10',
+    street_width: 25,
+    property_area: 1200,
+    directions: 'جنوب',
+    plan_number: '13579',
+    property_number: '567',
+    property_age: 2,
+    negotiable: 1,
+    images: [
+      '9.png',
+      '10.png'
+    ]
+  },
+  {
+    id: '5',
+    property_type: 17, // Villa with internal stairs
+    owner: { name: 'فهد الرشيد', id: 'user-202' },
+    dateCreated: new Date('2023-09-12').toISOString(),
+    city_id: 1,
+    partnerNeighborhoods: 'حي الورود',
+    partners_count: 2,
+    investment_cost: 380000,
+    purpose: 1,
+    partner_type: 'تملك',
+    description: '350,1,1,2,0',
+    street_width: 22,
+    property_area: 350,
+    directions: 'شمال شرق',
+    plan_number: '24680',
+    property_number: '890',
+    property_age: 4,
+    negotiable: 0,
+    images: [
+      '11.png',
+      '12.png',
+      '13.png'
+    ]
+  }
+],
+useMockData: false
     };
   },
 
@@ -257,11 +383,11 @@ export default {
           { headers },
         );
 
-        this.realEstate = response.data.real_Estate_No.concat(response.data.real_Estate_Yes);
-        console.log('Number of elements in real_Estate:', this.realEstate.length);
+        this.mockRealEstate = response.data.real_Estate_No.concat(response.data.real_Estate_Yes);
+        console.log('Number of elements in real_Estate:', this.mockRealEstate.length);
         // eslint-disable-next-line max-len
-        this.realEstate = this.realEstate.filter((item) => item.owner && item.owner.id !== this.Iduser);
-        console.log('Number of elements in real_Estate_after filter:', this.realEstate.length);
+        this.mockRealEstate = this.mockRealEstate.filter((item) => item.owner && item.owner.id !== this.Iduser);
+        console.log('Number of elements in real_Estate_after filter:', this.mockRealEstate.length);
 
         this.commercials = response.data.commercials;
         console.log('Number of elements in commercials:', this.commercials.length);
@@ -287,9 +413,35 @@ export default {
       }
     },
     getCityNameById(cityId) {
+    // First try to get city from API data
+    if (this.cities && this.cities.length > 0) {
       const city = this.cities.find((c) => c.city_id === cityId);
-      return city ? city.name_ar : 'N/A';
-    },
+      if (city) return city.name_ar;
+    }
+    // Fallback to static Saudi cities data
+    const saudiCities = {
+      1: 'الرياض',
+      2: 'جدة',
+      3: 'مكة المكرمة',
+      4: 'المدينة المنورة',
+      5: 'الدمام',
+      6: 'الخبر',
+      7: 'الطائف',
+      8: 'تبوك',
+      9: 'بريدة',
+      10: 'خميس مشيط',
+      11: 'حائل',
+      12: 'الجبيل',
+      13: 'أبها',
+      14: 'نجران',
+      15: 'ينبع',
+      16: 'القنفذة',
+      17: 'الاحساء',
+      18: 'عرعر',
+      19: 'سكاكا'
+    };
+    return saudiCities[cityId] || 'غير معروف';
+  },
     convertTimestampToFormalDateTime(timestamp) {
       const dateObj = new Date(timestamp);
 
@@ -542,18 +694,18 @@ export default {
     //   }
     //   return null;
     // },
-    sendLove(realEstateId) {
-      // Prepare data with the dynamic realEstateId
+    sendLove(mockRealEstateId) {
+      // Prepare data with the dynamic mockRealEstateId
       const data = {
         reactor: this.Iduser,
         commercial: '',
         real_estate_yes: '',
         real_estate_no: '',
       };
-      if (this.realEstate.property_number) {
-        data.real_estate_yes = `${realEstateId}`;
+      if (this.mockRealEstate.property_number) {
+        data.real_estate_yes = `${mockRealEstateId}`;
       } else {
-        data.real_estate_no = `${realEstateId}`;
+        data.real_estate_no = `${mockRealEstateId}`;
       }
       // Make a POST request to the API
       fetch('https://www.mashrook.somee.com/Love/AddLove', {

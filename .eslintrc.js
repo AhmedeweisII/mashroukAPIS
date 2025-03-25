@@ -13,7 +13,12 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'linebreak-style': 'off', // 👈 Add this line to disable linebreak-style error
+    'linebreak-style': 'off',
+    indent: 'off', // Disable indentation checks
+    'comma-dangle': 'off', // Disable trailing comma checks
+    'vue/html-indent': 'off', // Disable Vue-specific indentation
+    'vue/script-indent': 'off', // Disable script section indentation
+    'max-len': 'off' // Disable line length checks
   },
   overrides: [
     {

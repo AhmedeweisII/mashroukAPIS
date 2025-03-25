@@ -1,3 +1,3 @@
-cd /d "E:\Lan_Production\TFourthGitHub\TherdGitHub\mashroukAPIS"
+cd /d "E:\Lan_Production\TFourthGitHub\mashroukAPIS"
 npm run serve
 
