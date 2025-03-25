@@ -62,9 +62,9 @@
     <div class="container" >
 
       <div  v-for="message in messages" :key="message.id" :class="{ 'message-holder': true, 'align-left': message.userid === Iduser, 'align-right': message.userid !== Iduser }">
-        <!-- <div class="talker-img-div">
-          <img :src="message?.userid === Iduser ? require('../../assets/imgs/profile.png') : require('../../assets/imgs/profil-pic.jpg')" class="talker-img icone-resize">
-        </div> -->
+        <div class="talker-img-div">
+          <!-- <img :src="message?.userid === Iduser ? require('../../assets/imgs/profile.png') : require('../../assets/imgs/profil-pic.jpg')" class="talker-img icone-resize"> -->
+        </div>
         <div class="talker-sec" >
           <div class="talker-info"  :class="{ 'message-holder': true, 'align-left': message.userid === Iduser, 'align-right': message.userid !== Iduser }">
             <h3 class="talker-name">{{ message.username.replace(/"/g, '') }}</h3>

@@ -18,6 +18,7 @@
             required>
         </div>
         <button class="mashrouk-btn">تسجيل الدخول</button>
+
         <!-- <input type="submit" value="تسجيل الدخول" required class="mashrouk-btn" /> -->
         <div class="cell-actions">
           <div class="forgit">
@@ -29,6 +30,8 @@
         <div class="Reg-cell">
           <router-link to="/signup" class="c-s">أنشئ حساب جديد</router-link>
         </div>
+        <br>
+        <button class="mashrouk-btn"> <router-link to="/main">ادخل</router-link></button>
       </form>
     </div>
   </section>
